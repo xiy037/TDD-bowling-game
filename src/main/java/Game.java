@@ -12,11 +12,13 @@ public class Game {
 
   public int calculateTotalScore() {
     int sum = 0;
-    for (int[] roundCounts : this.countsArray) {
-      if (roundCounts.length == 2) {
-        Round thisRound = new Round(roundCounts[0], roundCounts[1]);
+    for (int i = 0; i < countsArray.length; i++) {
+      if (countsArray[i].length == 2) {
+        Round thisRound = new Round(countsArray[i][0], countsArray[i][1]);
         if (thisRound.getFirstHit() + thisRound.getSecondHit() < 10) {
           sum += thisRound.calculateNormalScore();
+        } else {
+          sum += thisRound.calculateScoreWhenSpare(countsArray[i+1][0]);
         }
       }
     }
