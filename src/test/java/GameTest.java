@@ -43,4 +43,17 @@ public class GameTest {
   }
 
 
+  @Test
+  void should_return_all_fallen_balls_count_plus_extra_two_hits_after_strike_when_strike_occurs() {
+    //given
+    int[][] countsArray = {{0,8}, {5,3}, {4,2}, {3,4}, {10}, {5,1}, {5,2}, {6,2}, {7,2}, {7,1}};
+    Game game = new Game(countsArray);
+
+    //when
+    int totalScore = game.calculateTotalScore();
+
+    //then
+    assertEquals(83, totalScore);
+  }
+
 }

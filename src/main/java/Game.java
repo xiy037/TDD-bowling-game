@@ -1,7 +1,5 @@
 import lombok.Data;
 
-import java.util.ArrayList;
-
 @Data
 public class Game {
   private int[][] countsArray;
@@ -19,6 +17,13 @@ public class Game {
           sum += thisRound.calculateNormalScore();
         } else {
           sum += thisRound.calculateScoreWhenSpare(countsArray[i+1][0]);
+        }
+      } else {
+        Round thisRound = new Round(countsArray[i][0]);
+        if (countsArray[i+1].length == 1) {
+          sum += thisRound.calculateScoreWhenStrike(countsArray[i+1][0], countsArray[i+2][0]);
+        } else {
+          sum += thisRound.calculateScoreWhenStrike(countsArray[i+1][0], countsArray[i+1][1]);
         }
       }
     }
