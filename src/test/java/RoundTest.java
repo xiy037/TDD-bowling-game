@@ -30,4 +30,16 @@ public class RoundTest {
     //then
     assertEquals(18, totalScore);
   }
+
+  @Test
+  public void should_return_sum_of_two_hits_in_one_round_when_throwing_bowling_given_failing_to_hit_all() {
+    //given
+    Round thisRound = new Round(5, 4);
+
+    //when
+    int totalScore = thisRound.calculateNormalScore();
+
+    //then
+    assertEquals(9, totalScore);
+  }
 }

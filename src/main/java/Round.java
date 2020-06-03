@@ -21,4 +21,8 @@ public class Round {
   public int calculateScoreWhenSpare(int nextHit) {
     return this.firstHit + this.secondHit + nextHit;
   }
+
+  public int calculateNormalScore() {
+    return this.firstHit + this.secondHit;
+  }
 }
