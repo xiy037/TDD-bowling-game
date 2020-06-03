@@ -15,4 +15,17 @@ public class GameTest {
     //then
     assertEquals(0, totalScore);
   }
+
+  @Test
+  void should_return_sum_of_fallen_balls_when_no_spare_or_strike_occurs() {
+    //given
+    int[][] countsArray = {{0,8}, {5,3}, {4,2}, {3,4}, {5,0}, {5,1}, {5,2}, {6,2}, {7,2}, {7,1}};
+    Game game = new Game(countsArray);
+
+    //when
+    int totalScore = game.calculateTotalScore();
+
+    //then
+    assertEquals(72, totalScore);
+  }
 }
