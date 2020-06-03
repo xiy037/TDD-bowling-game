@@ -18,13 +18,16 @@ public class Game {
         } else {
           sum += thisRound.calculateScoreWhenSpare(countsArray[i+1][0]);
         }
-      } else {
+      } else if (countsArray[i].length == 1){
         Round thisRound = new Round(countsArray[i][0]);
         if (countsArray[i+1].length == 1) {
           sum += thisRound.calculateScoreWhenStrike(countsArray[i+1][0], countsArray[i+2][0]);
         } else {
           sum += thisRound.calculateScoreWhenStrike(countsArray[i+1][0], countsArray[i+1][1]);
         }
+      } else {
+        Round thisRound = new Round(countsArray[i][0], countsArray[i][1]);
+        sum += thisRound.calculateNormalScore() + countsArray[i][2];
       }
     }
     return sum;
