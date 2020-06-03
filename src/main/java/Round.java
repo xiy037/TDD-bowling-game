@@ -14,11 +14,11 @@ public class Round {
    this.secondHit = b;
   }
 
-  public int calculateScore(int nextHit1, int nextHit2) {
-    int result = 0;
-    if (this.firstHit == 10) {
-      result = this.firstHit + nextHit1 + nextHit2;
-    }
-    return result;
+  public int calculateScoreWhenStrike(int nextHit1, int nextHit2) {
+     return this.firstHit + nextHit1 + nextHit2;
+  }
+
+  public int calculateScoreWhenSpare(int nextHit) {
+    return this.firstHit + this.secondHit + nextHit;
   }
 }
