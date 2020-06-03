@@ -26,6 +26,7 @@ public class Game {
           sum += thisRound.calculateScoreWhenStrike(countsArray[i+1][0], countsArray[i+1][1]);
         }
       } else {
+        //all last round with extra hits consider a normal round to sum up all fallen balls and the third hitÒÒ
         Round thisRound = new Round(countsArray[i][0], countsArray[i][1]);
         sum += thisRound.calculateNormalScore() + countsArray[i][2];
       }

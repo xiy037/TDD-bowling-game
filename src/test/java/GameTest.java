@@ -82,4 +82,17 @@ public class GameTest {
     assertEquals(82, totalScore);
   }
 
+  @Test
+  void should_return_300_when_all_round_and_extra_hits_are_strike() {
+    //given
+    int[][] countsArray = {{10}, {10}, {10}, {10}, {10}, {10}, {10}, {10}, {10}, {10,10, 10}};
+    Game game = new Game(countsArray);
+
+    //when
+    int totalScore = game.calculateTotalScore();
+
+    //then
+    assertEquals(300, totalScore);
+  }
+
 }
