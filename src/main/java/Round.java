@@ -4,6 +4,7 @@ import lombok.Data;
 public class Round {
   private int firstHit;
   private int secondHit;
+  private int roundScore;
 
   public Round(int a) {
     this.firstHit = a;
@@ -15,14 +16,17 @@ public class Round {
   }
 
   public int calculateScoreWhenStrike(int nextHit1, int nextHit2) {
-     return this.firstHit + nextHit1 + nextHit2;
+     this.roundScore = this.firstHit + nextHit1 + nextHit2;
+     return roundScore;
   }
 
   public int calculateScoreWhenSpare(int nextHit) {
-    return this.firstHit + this.secondHit + nextHit;
+    this.roundScore = this.firstHit + this.secondHit + nextHit;
+    return roundScore;
   }
 
   public int calculateNormalScore() {
-    return this.firstHit + this.secondHit;
+    this.roundScore = this.firstHit + this.secondHit;
+    return roundScore;
   }
 }
